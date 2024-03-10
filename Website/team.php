@@ -153,7 +153,30 @@ session_start();
                 <h1>Our Hospitals</h1>
             </div>
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <?php
+                $query = "SELECT *  from hospitaL_details WHERE status = 'Approve' ";
+                $result = mysqli_query($con, $query);
+                foreach($result as $row){
+                    echo "<div class='col-lg-3 col-md-6 wow fadeInUp' data-wow-delay='0.1s'>
+                    <div class='team-item position-relative rounded overflow-hidden'>
+                        <div class='overflow-hidden'>
+                            <img class='img-fluid' src='img/team-1.jpg' alt='>
+                        </div>
+                        <div class='team-text bg-light text-center p-4'>
+                            <h5>$row[hospital_name]</h5>
+                            <p class='text-primary'>$row[hospital_location]</p>
+                            <div class='team-social text-center'>
+                                <a class='btn btn-square' href='><i class='fab fa-facebook-f'></i></a>
+                                <a class='btn btn-square' href='><i class='fab fa-twitter'></i></a>
+                                <a class='btn btn-square' href='><i class='fab fa-instagram'></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>";
+                }
+
+                ?>
+                <!-- <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item position-relative rounded overflow-hidden">
                         <div class="overflow-hidden">
                             <img class="img-fluid" src="img/team-1.jpg" alt="">
@@ -279,7 +302,7 @@ session_start();
                                 <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
